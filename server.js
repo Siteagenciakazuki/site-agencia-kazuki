@@ -11,11 +11,28 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(compression());
+
+// Serve WebP automaticamente quando o browser suporta, sem mudar o HTML
+app.use((req, res, next) => {
+  if (/\.(png|jpe?g)$/i.test(req.path) && req.accepts("image/webp")) {
+    const webpPath = path.join(__dirname, "public", req.path.replace(/\.(png|jpe?g)$/i, ".webp"));
+    const fs = require("fs");
+    if (fs.existsSync(webpPath)) {
+      res.setHeader("Vary", "Accept");
+      res.setHeader("Content-Type", "image/webp");
+      res.setHeader("Cache-Control", "public, max-age=2592000");
+      return res.sendFile(webpPath);
+    }
+  }
+  next();
+});
+
 app.use(
   express.static(path.join(__dirname, "public"), {
     maxAge: "30d",
     setHeaders(res, filePath) {
       if (filePath.endsWith(".html")) res.setHeader("Cache-Control", "no-cache");
+      if (filePath.endsWith(".woff2")) res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
     },
   })
 );
