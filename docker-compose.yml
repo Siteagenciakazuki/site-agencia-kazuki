@@ -3,7 +3,17 @@ services:
     build: .
     container_name: site-agencia-kazuki
     restart: unless-stopped
-    ports:
-      - "8081:3000"
     environment:
       - PORT=3000
+    networks: [web]
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=web"
+      - "traefik.http.routers.kazuki.rule=Host(`agenciakazuki.com.br`) || Host(`www.agenciakazuki.com.br`)"
+      - "traefik.http.routers.kazuki.entrypoints=websecure"
+      - "traefik.http.routers.kazuki.tls.certresolver=letsencrypt"
+      - "traefik.http.services.kazuki.loadbalancer.server.port=3000"
+
+networks:
+  web:
+    external: true
