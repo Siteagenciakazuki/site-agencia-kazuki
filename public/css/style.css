@@ -273,12 +273,48 @@ p { margin: 0 0 var(--space-2); color: var(--color-text-muted); }
    Hero
    ========================================================================== */
 .hero { padding-block: var(--space-6) var(--space-5); overflow: hidden; }
+
+/* Foto à esquerda (maior), texto à direita */
 .hero__inner {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 0.85fr 1.15fr;
   gap: var(--space-5);
   align-items: center;
 }
+
+/* Foto mostra o corpo todo, sem crop */
+.hero__media {
+  align-self: end;
+}
+.hero__media img {
+  width: 100%;
+  max-height: 700px;
+  object-fit: contain;
+  object-position: center bottom;
+  border-radius: var(--radius-md);
+  filter: drop-shadow(0 30px 50px rgba(212, 168, 83, 0.3));
+}
+
+/* Reveal com 2.5s só pra foto do hero — começa zoom-out (longe) e aproxima */
+.hero__media.reveal {
+  opacity: 0;
+  transform: scale(1.12) translateY(20px);
+  transition:
+    opacity 2.5s var(--ease-out),
+    transform 2.5s var(--ease-out);
+}
+.hero__media.reveal.is-visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Texto aparece junto mas um pouco depois */
+.hero__text.reveal {
+  transition:
+    opacity 1.8s var(--ease-out),
+    transform 1.8s var(--ease-out);
+}
+
 .hero__subhead { font-size: 1.1rem; max-width: 50ch; }
 .hero__actions {
   display: flex;
@@ -299,14 +335,10 @@ p { margin: 0 0 var(--space-2); color: var(--color-text-muted); }
   font-size: 0.78rem;
   color: var(--color-gold-light);
 }
-.hero__media img {
-  border-radius: var(--radius-md);
-  box-shadow: 0 30px 60px -20px rgba(212, 168, 83, 0.35);
-}
 
 @media (max-width: 880px) {
   .hero__inner { grid-template-columns: 1fr; }
-  .hero__media { order: -1; max-width: 320px; margin-inline: auto; }
+  .hero__media { order: -1; max-width: 280px; margin-inline: auto; }
 }
 
 /* ==========================================================================
