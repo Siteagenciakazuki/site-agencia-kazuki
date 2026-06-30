@@ -669,7 +669,15 @@ p { margin: 0 0 var(--space-2); color: var(--color-text-muted); }
   font-family: var(--font-body); white-space: nowrap; z-index: 20;
 }
 
-/* Mensagens expandidas (direita) */
+/* Mensagens WhatsApp — grid direto sem iPhone */
+.dep-msgs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+@media (max-width: 1024px) { .dep-msgs-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px)  { .dep-msgs-grid { grid-template-columns: 1fr; } }
+
 .dep-msgs { display: grid; gap: var(--space-3); }
 .dep-msg {
   background: var(--color-surface);

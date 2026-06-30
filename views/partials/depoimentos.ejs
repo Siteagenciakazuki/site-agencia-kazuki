@@ -62,102 +62,7 @@ const msgs = [
       Restaurantes que apareceram no topo do Google em Cotia e região depois de trabalhar com a Kazuki Marketing.
     </p>
 
-    <!-- Hero visual: foto IA do iPhone 17 Pro Max -->
-    <div class="dep-hero-img reveal">
-      <img
-        src="/images/iphone-whatsapp-mockup.jpg"
-        alt="iPhone 17 Pro Max mostrando conversa de WhatsApp com cliente de restaurante agradecendo à Kazuki Marketing"
-        width="1024"
-        height="1024"
-        loading="lazy"
-      >
-      <div class="dep-hero-img__caption">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366" aria-hidden="true"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.7 16.46L2 22l5.69-1.5a8.93 8.93 0 0 0 4.36 1.11h.01a8.94 8.94 0 0 0 6.32-15.29Z"/></svg>
-        Clientes reais, resultados reais
-      </div>
-    </div>
-
-    <div class="dep-grid">
-
-      <!-- iPhone 17 Pro Max mockup -->
-      <div class="iphone-wrap reveal">
-        <div class="iphone">
-          <!-- Titanium frame shine -->
-          <div class="iphone__frame-shine"></div>
-          <!-- Dynamic Island -->
-          <div class="iphone__island">
-            <div class="iphone__island-cam"></div>
-          </div>
-          <div class="iphone__screen">
-            <!-- Status bar -->
-            <div class="wa-statusbar">
-              <span class="wa-statusbar__time">09:41</span>
-              <div class="wa-statusbar__icons">
-                <svg width="14" height="10" viewBox="0 0 14 10" fill="white"><rect x="0" y="3" width="2" height="7" rx="0.5"/><rect x="3" y="2" width="2" height="8" rx="0.5"/><rect x="6" y="0" width="2" height="10" rx="0.5"/><rect x="9" y="0" width="2" height="10" rx="0.5" opacity=".4"/></svg>
-                <svg width="14" height="10" viewBox="0 0 50 20" fill="white"><rect x="1" y="1" width="40" height="18" rx="4" stroke="white" stroke-width="2" fill="none"/><rect x="4" y="4" width="28" height="12" rx="2" fill="white"/><rect x="43" y="6" width="6" height="8" rx="2" fill="white" opacity=".5"/></svg>
-              </div>
-            </div>
-            <!-- WhatsApp header -->
-            <div class="wa-header">
-              <div class="wa-header__back">‹</div>
-              <div class="wa-header__avatar" style="background:#25D366">K</div>
-              <div class="wa-header__title-wrap">
-                <span class="wa-header__title">Kazuki Marketing</span>
-                <span class="wa-header__sub">clientes · 6 mensagens</span>
-              </div>
-              <div class="wa-header__icons">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-              </div>
-            </div>
-            <!-- Chat messages list -->
-            <div class="wa-chatlist">
-              <% msgs.forEach((m, i) => { %>
-              <div class="wa-chatrow">
-                <div class="wa-avatar" style="background:<%= m.cor %>; width:38px; height:38px; font-size:.7rem"><%= m.de %></div>
-                <div class="wa-chatrow__body">
-                  <div class="wa-chatrow__top">
-                    <span class="wa-chatrow__name"><%= m.nome %></span>
-                    <span class="wa-chatrow__time"><%= m.hora %></span>
-                  </div>
-                  <div class="wa-chatrow__preview">
-                    <span><%= m.texto %></span>
-                    <% if (m.novo) { %><span class="wa-chatrow__dot"></span><% } %>
-                  </div>
-                </div>
-              </div>
-              <% }) %>
-            </div>
-            <!-- bottom nav -->
-            <div class="wa-bottomnav">
-              <div class="wa-bottomnav__item wa-bottomnav__item--active">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-                <span>Conversas</span>
-              </div>
-              <div class="wa-bottomnav__item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                <span>Status</span>
-              </div>
-              <div class="wa-bottomnav__item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                <span>Ligações</span>
-              </div>
-            </div>
-            <!-- screen glare overlay -->
-            <div class="iphone__glare"></div>
-          </div>
-          <div class="iphone__bar"></div>
-          <!-- side buttons -->
-          <div class="iphone__btn iphone__btn--vol-up"></div>
-          <div class="iphone__btn iphone__btn--vol-down"></div>
-          <div class="iphone__btn iphone__btn--power"></div>
-        </div>
-        <div class="iphone-badge reveal" data-reveal-delay="400">
-          💬 <%= deps.length %> clientes satisfeitos
-        </div>
-      </div>
-
-      <!-- mensagens expandidas -->
-      <div class="dep-msgs">
+    <div class="dep-msgs-grid">
         <% deps.forEach((d, i) => { %>
         <div class="dep-msg reveal" data-reveal-delay="<%= i * 60 %>">
           <div class="dep-msg__top">
@@ -174,9 +79,7 @@ const msgs = [
           </div>
         </div>
         <% }) %>
-      </div>
-
-    </div><!-- /dep-grid -->
+    </div>
 
     <!-- Google Reviews -->
     <h2 class="reveal" style="margin-top:var(--space-6)">O que dizem no Google</h2>
