@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="section legal-page">
+    <div class="container">
+      <h1 class="reveal" data-reveal="mount"><%= meta.h1 %></h1>
+      <p class="reveal">Última atualização: <%= new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" }) %></p>
+
+      <div class="reveal">
+        <h2>1. O que são cookies</h2>
+        <p>
+          Cookies são pequenos arquivos armazenados no seu navegador que
+          ajudam o site a funcionar corretamente e a entender como ele é
+          usado.
+        </p>
+
+        <h2>2. Quais cookies usamos</h2>
+        <p>
+          Usamos cookies estritamente necessários (funcionamento do site) e,
+          quando aplicável, cookies de análise de tráfego pra entender quais
+          páginas têm mais visitas e melhorar o conteúdo.
+        </p>
+
+        <h2>3. Como gerenciar cookies</h2>
+        <p>
+          Você pode bloquear ou apagar cookies a qualquer momento nas
+          configurações do seu navegador. Bloquear cookies essenciais pode
+          afetar o funcionamento de algumas partes do site.
+        </p>
+
+        <h2>4. Contato</h2>
+        <p>
+          Dúvidas sobre esta política: <a href="mailto:<%= business.email %>"><%= business.email %></a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

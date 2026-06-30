@@ -1,0 +1,25 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="<%= business.name %> — página inicial">
+      <img src="/images/logo-kazuki-marketing.png" alt="Logo Kazuki Marketing" width="44" height="44" class="site-header__logo">
+      <span class="site-header__name">Kazuki <strong>Marketing</strong></span>
+    </a>
+
+    <button class="site-header__toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="primaryNav" aria-label="Navegação principal">
+      <ul>
+        <% navLinks.forEach((link) => { %>
+          <li>
+            <a href="<%= link.href %>" class="<%= currentPath === link.href ? 'is-active' : '' %>" <%= currentPath === link.href ? 'aria-current="page"' : '' %>>
+              <%= link.label %>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+      <a href="<%= business.whatsappUrl %>" class="btn btn--gold site-nav__cta" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>

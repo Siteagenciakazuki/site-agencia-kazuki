@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="page-hero reveal" data-reveal="mount">
+    <div class="container">
+      <p class="eyebrow">Blog</p>
+      <h1><%= meta.h1 %></h1>
+      <p class="page-hero__subhead">SEO local, Google Meu Negócio e marketing pra restaurantes — direto ao ponto.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="blog-list">
+        <% blogPosts.forEach((post, i) => { %>
+          <article class="blog-card reveal" data-reveal-delay="<%= i * 60 %>">
+            <h2><a href="/blog/<%= post.slug %>"><%= post.title %></a></h2>
+            <p><%= post.excerpt %></p>
+            <a href="/blog/<%= post.slug %>" class="blog-card__link">Ler artigo →</a>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

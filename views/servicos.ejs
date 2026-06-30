@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="page-hero reveal" data-reveal="mount">
+    <div class="container">
+      <p class="eyebrow">Serviços</p>
+      <h1><%= meta.h1 %></h1>
+      <p class="page-hero__subhead">Tudo que sua empresa precisa pra crescer no Google em Cotia e região.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-list">
+        <% services.forEach((service, i) => { %>
+          <article class="service-block reveal" data-reveal-delay="<%= i * 60 %>">
+            <h2><%= service.title %></h2>
+            <p><%= service.summary %></p>
+            <h3 class="visually-hidden">O que está incluso em <%= service.title %></h3>
+            <ul>
+              <% service.bullets.forEach((bullet) => { %>
+                <li><%= bullet %></li>
+              <% }) %>
+            </ul>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final reveal">
+    <div class="container">
+      <h2>Quer saber qual serviço faz mais sentido pro seu negócio?</h2>
+      <a href="<%= business.whatsappUrl %>" class="btn btn--gold btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

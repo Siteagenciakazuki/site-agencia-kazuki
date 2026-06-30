@@ -1,0 +1,77 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= meta.title %></title>
+<meta name="description" content="<%= meta.description %>">
+<link rel="canonical" href="<%= meta.canonical %>">
+
+<!-- Geo tags — SEO local Cotia/SP -->
+<meta name="geo.region" content="BR-SP">
+<meta name="geo.placename" content="Cotia">
+<meta name="geo.position" content="<%= business.geo.lat %>;<%= business.geo.lng %>">
+<meta name="ICBM" content="<%= business.geo.lat %>, <%= business.geo.lng %>">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="<%= meta.title %>">
+<meta property="og:description" content="<%= meta.description %>">
+<meta property="og:url" content="<%= meta.canonical %>">
+<meta property="og:image" content="<%= business.siteUrl %>/images/logo-kazuki-marketing.png">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="<%= business.name %>">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= meta.title %>">
+<meta name="twitter:description" content="<%= meta.description %>">
+<meta name="twitter:image" content="<%= business.siteUrl %>/images/logo-kazuki-marketing.png">
+
+<link rel="icon" href="/images/favicon-kazuki.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/favicon-kazuki.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Schema.org LocalBusiness -->
+<script type="application/ld+json">
+<%- JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": business.name,
+  "image": `${business.siteUrl}/images/logo-kazuki-marketing.png`,
+  "telephone": business.phoneIntl,
+  "email": business.email,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": business.address.street,
+    "addressLocality": business.address.city,
+    "addressRegion": business.address.state,
+    "postalCode": business.address.zip,
+    "addressCountry": business.address.country
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": business.geo.lat,
+    "longitude": business.geo.lng
+  },
+  "url": business.siteUrl,
+  "areaServed": "Cotia, SP",
+  "sameAs": [business.instagram, business.facebook]
+}) %>
+</script>
+
+<% if (typeof faq !== "undefined" && faq && faq.length) { %>
+<script type="application/ld+json">
+<%- JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((item) => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+}) %>
+</script>
+<% } %>

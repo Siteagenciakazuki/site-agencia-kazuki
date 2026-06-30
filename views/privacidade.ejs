@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="section legal-page">
+    <div class="container">
+      <h1 class="reveal" data-reveal="mount"><%= meta.h1 %></h1>
+      <p class="reveal">Última atualização: <%= new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" }) %></p>
+
+      <div class="reveal">
+        <h2>1. Quem somos</h2>
+        <p>
+          Este site é operado por <%= business.name %> (<%= business.legalName %>,
+          CNPJ <%= business.cnpj %>), com sede em <%= business.address.street %>,
+          <%= business.address.neighborhood %>, <%= business.address.city %>/<%= business.address.state %>,
+          CEP <%= business.address.zip %>.
+        </p>
+
+        <h2>2. Quais dados coletamos</h2>
+        <p>
+          Coletamos os dados que você nos envia voluntariamente ao entrar em
+          contato (nome, telefone, e-mail, mensagem) via WhatsApp, formulário
+          ou e-mail, além de dados de navegação coletados por cookies — ver
+          nossa <a href="/cookies">Política de Cookies</a>.
+        </p>
+
+        <h2>3. Como usamos seus dados</h2>
+        <p>
+          Usamos seus dados para responder seu contato, elaborar propostas
+          comerciais e, quando autorizado, enviar comunicações sobre nossos
+          serviços. Não vendemos nem compartilhamos seus dados com terceiros
+          pra fins de marketing de terceiros.
+        </p>
+
+        <h2>4. Seus direitos (LGPD)</h2>
+        <p>
+          Conforme a Lei Geral de Proteção de Dados (Lei 13.709/2018), você
+          pode solicitar acesso, correção, anonimização ou exclusão dos seus
+          dados a qualquer momento, entrando em contato pelo e-mail
+          <a href="mailto:<%= business.email %>"><%= business.email %></a>.
+        </p>
+
+        <h2>5. Contato</h2>
+        <p>
+          Dúvidas sobre esta política podem ser enviadas pra
+          <a href="mailto:<%= business.email %>"><%= business.email %></a>
+          ou pelo WhatsApp <a href="tel:<%= business.phoneIntl %>"><%= business.phoneDisplay %></a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="section legal-page">
+    <div class="container">
+      <h1 class="reveal" data-reveal="mount"><%= meta.h1 %></h1>
+      <p class="reveal">Última atualização: <%= new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" }) %></p>
+
+      <div class="reveal">
+        <h2>1. Aceitação dos termos</h2>
+        <p>
+          Ao acessar este site, você concorda com estes Termos de Uso. Se não
+          concordar, recomendamos não utilizar o site.
+        </p>
+
+        <h2>2. Sobre o conteúdo</h2>
+        <p>
+          O conteúdo deste site (textos, imagens, logo, identidade visual) é
+          de propriedade de <%= business.name %> e não pode ser reproduzido
+          sem autorização prévia.
+        </p>
+
+        <h2>3. Sobre os serviços</h2>
+        <p>
+          As informações sobre serviços neste site são de caráter
+          informativo. Condições comerciais (prazo, escopo, valor) são
+          definidas em proposta específica após contato direto.
+        </p>
+
+        <h2>4. Links externos</h2>
+        <p>
+          Este site pode conter links pra sites de terceiros (redes sociais,
+          parceiros). Não nos responsabilizamos pelo conteúdo de sites
+          externos.
+        </p>
+
+        <h2>5. Alterações</h2>
+        <p>
+          Estes termos podem ser atualizados a qualquer momento. A versão
+          vigente é sempre a publicada nesta página.
+        </p>
+
+        <h2>6. Contato</h2>
+        <p>
+          Dúvidas sobre estes termos: <a href="mailto:<%= business.email %>"><%= business.email %></a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <article class="section blog-post">
+    <div class="container blog-post__inner">
+      <p class="eyebrow reveal" data-reveal="mount">
+        <a href="/blog">← Voltar pro blog</a>
+      </p>
+      <h1 class="reveal" data-reveal="mount"><%= post.title %></h1>
+      <p class="blog-post__date reveal" data-reveal="mount">
+        <%= new Date(post.date).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" }) %>
+      </p>
+
+      <% post.body.forEach((block, i) => { %>
+        <section class="blog-post__block reveal" data-reveal-delay="<%= i * 50 %>">
+          <h2><%= block.heading %></h2>
+          <% block.paragraphs.forEach((p) => { %>
+            <p><%= p %></p>
+          <% }) %>
+        </section>
+      <% }) %>
+
+      <div class="blog-post__cta reveal">
+        <p>Quer aplicar isso no seu negócio em Cotia?</p>
+        <a href="<%= business.whatsappUrl %>" class="btn btn--gold" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+  </article>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

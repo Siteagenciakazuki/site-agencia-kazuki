@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="section not-found">
+    <div class="container">
+      <h1><%= meta.h1 %></h1>
+      <p>A página que você procura não existe ou foi movida.</p>
+      <a href="/" class="btn btn--gold">Voltar pra Home</a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

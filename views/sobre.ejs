@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head') %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="page-hero reveal" data-reveal="mount">
+    <div class="container">
+      <p class="eyebrow">Sobre</p>
+      <h1><%= meta.h1 %></h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-grid__media reveal">
+        <img
+          src="/images/alexandre-santos-seo-local-cotia.png"
+          alt="Alexandre Santos, fundador da Kazuki Marketing, especialista em SEO local em Cotia"
+          width="900"
+          height="1200"
+          loading="lazy"
+        >
+      </div>
+      <div class="about-grid__text">
+        <h2 class="reveal">12 Anos de Experiência no Setor de Alimentação</h2>
+        <p class="reveal">
+          Alexandre Santos passou mais de 12 anos em liderança operacional em
+          redes como Madero, Coco Bambu, Outback Steakhouse, Astor, Ici
+          Brasserie e Pirajá — gestão de equipes, experiência do cliente,
+          padronização de processos e gestão de qualidade.
+        </p>
+
+        <h2 class="reveal">Da Operação de Restaurantes ao Marketing Digital</h2>
+        <p class="reveal">
+          Essa vivência prática, orientada a resultado, foi a base pra migrar
+          pro marketing digital: hoje Alexandre aplica a mesma visão
+          operacional em SEO local, Google Meu Negócio e desenvolvimento de
+          sites — com foco especial em restaurantes e negócios locais de
+          Cotia/SP.
+        </p>
+
+        <h2 class="reveal">Nossa Missão</h2>
+        <p class="reveal">
+          "<%= business.tagline %>" — transformar pesquisa no Google em
+          cliente real, com estratégia de SEO local, parcerias com blogs da
+          região e presença completa no Google Meu Negócio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final reveal">
+    <div class="container">
+      <h2>Vamos conversar sobre o seu negócio?</h2>
+      <a href="<%= business.whatsappUrl %>" class="btn btn--gold btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>

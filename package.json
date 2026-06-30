@@ -1,0 +1,20 @@
+{
+  "name": "kazuki-marketing-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional da Kazuki Marketing — agência de marketing digital e SEO local em Cotia/SP",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

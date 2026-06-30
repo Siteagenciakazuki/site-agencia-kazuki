@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<%- include('partials/head', { faq }) %>
+</head>
+<body>
+<%- include('partials/header') %>
+
+<main id="main">
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__text reveal" data-reveal="mount">
+        <p class="eyebrow">Agência de Marketing em Cotia/SP</p>
+        <h1><%= meta.h1 %></h1>
+        <p class="hero__subhead">
+          SEO local, sites de alta performance e Google Meu Negócio — e também
+          desenvolvemos software sob medida e micro-SaaS pro seu negócio.
+        </p>
+        <div class="hero__actions">
+          <a href="<%= business.whatsappUrl %>" class="btn btn--gold btn--lg" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a href="/servicos" class="btn btn--ghost btn--lg">Ver serviços</a>
+        </div>
+        <ul class="hero__badges">
+          <li>+12 anos no setor de alimentação</li>
+          <li>Especialista em SEO Local</li>
+        </ul>
+      </div>
+
+      <div class="hero__media reveal" data-reveal="mount" data-reveal-delay="150">
+        <img
+          src="/images/alexandre-santos-seo-local-cotia.png"
+          alt="Alexandre Santos, especialista em SEO local em Cotia, fundador da Kazuki Marketing"
+          width="900"
+          height="1200"
+          fetchpriority="high"
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Por que escolher a Kazuki Marketing</h2>
+      <div class="grid grid--3">
+        <% differentiators.forEach((item, i) => { %>
+          <article class="card reveal" data-reveal-delay="<%= i * 80 %>">
+            <h3><%= item.title %></h3>
+            <p><%= item.text %></p>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="reveal">Nossos Serviços</h2>
+      <div class="grid grid--3">
+        <% services.forEach((service, i) => { %>
+          <article class="card card--service reveal" data-reveal-delay="<%= i * 60 %>">
+            <h3><%= service.title %></h3>
+            <p><%= service.summary %></p>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--highlight">
+    <div class="container">
+      <h2 class="reveal">Especialistas em SEO Local para Restaurantes</h2>
+      <p class="reveal" style="max-width: 70ch;">
+        Antes de virar estrategista de marketing, Alexandre Santos passou mais
+        de 12 anos liderando operações em redes como Madero, Coco Bambu,
+        Outback Steakhouse, Astor, Ici Brasserie e Pirajá. É essa vivência
+        operacional — entender o que realmente traz cliente pra mesa — que
+        diferencia o trabalho de SEO local da Kazuki Marketing pra
+        restaurantes em Cotia e região.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Como Trabalhamos</h2>
+      <ol class="process">
+        <% workProcess.forEach((step, i) => { %>
+          <li class="process__step reveal" data-reveal-delay="<%= i * 80 %>">
+            <span class="process__number"><%= String(i + 1).padStart(2, "0") %></span>
+            <h3><%= step.title %></h3>
+            <p><%= step.text %></p>
+          </li>
+        <% }) %>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="reveal">Perguntas Frequentes</h2>
+      <div class="faq">
+        <% faq.forEach((item, i) => { %>
+          <details class="faq__item reveal" data-reveal-delay="<%= i * 50 %>">
+            <summary><h3><%= item.question %></h3></summary>
+            <p><%= item.answer %></p>
+          </details>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-final reveal">
+    <div class="container">
+      <h2>Vamos colocar sua empresa no topo do Google em Cotia</h2>
+      <a href="<%= business.whatsappUrl %>" class="btn btn--gold btn--lg" target="_blank" rel="noopener">Falar no WhatsApp agora</a>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
+<script src="/js/main.js" defer></script>
+</body>
+</html>
