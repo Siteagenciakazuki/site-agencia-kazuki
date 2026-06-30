@@ -1,8 +1,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="robots" content="<%= typeof meta.noindex !== 'undefined' && meta.noindex ? 'noindex, nofollow' : 'index, follow' %>">
+<meta name="author" content="<%= business.name %>">
+
 <title><%= meta.title %></title>
 <meta name="description" content="<%= meta.description %>">
 <link rel="canonical" href="<%= meta.canonical %>">
+
+<!-- hreflang pt-BR -->
+<link rel="alternate" hreflang="pt-BR" href="<%= meta.canonical %>">
+<link rel="alternate" hreflang="x-default" href="<%= meta.canonical %>">
 
 <!-- Geo tags — SEO local Cotia/SP -->
 <meta name="geo.region" content="BR-SP">
@@ -11,11 +19,13 @@
 <meta name="ICBM" content="<%= business.geo.lat %>, <%= business.geo.lng %>">
 
 <!-- Open Graph -->
-<meta property="og:type" content="website">
+<meta property="og:type" content="<%= typeof meta.ogType !== 'undefined' ? meta.ogType : 'website' %>">
 <meta property="og:title" content="<%= meta.title %>">
 <meta property="og:description" content="<%= meta.description %>">
 <meta property="og:url" content="<%= meta.canonical %>">
 <meta property="og:image" content="<%= business.siteUrl %>/images/logo-kazuki-marketing.png">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="<%= business.name %>">
 
@@ -25,16 +35,39 @@
 <meta name="twitter:description" content="<%= meta.description %>">
 <meta name="twitter:image" content="<%= business.siteUrl %>/images/logo-kazuki-marketing.png">
 
-<link rel="icon" href="/images/favicon-kazuki.png" type="image/png">
-<link rel="apple-touch-icon" href="/images/favicon-kazuki.png">
+<!-- Breadcrumb Schema — páginas internas -->
+<% if (meta.breadcrumb) { %>
+<script type="application/ld+json">
+<%- JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": meta.breadcrumb.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": `${business.siteUrl}${item.path}`
+  }))
+}) %>
+</script>
+<% } %>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Article Schema — posts do blog -->
+<% if (typeof post !== 'undefined' && post) { %>
+<script type="application/ld+json">
+<%- JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.title,
+  "description": post.excerpt,
+  "datePublished": post.date,
+  "author": { "@type": "Person", "name": business.founder },
+  "publisher": { "@type": "Organization", "name": business.name, "url": business.siteUrl },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": meta.canonical }
+}) %>
+</script>
+<% } %>
 
-<link rel="stylesheet" href="/css/style.css">
-
-<!-- Schema.org LocalBusiness -->
+<!-- Schema.org LocalBusiness — presente em todas as páginas -->
 <script type="application/ld+json">
 <%- JSON.stringify({
   "@context": "https://schema.org",
@@ -62,6 +95,7 @@
 }) %>
 </script>
 
+<!-- FAQPage Schema — apenas na home -->
 <% if (typeof faq !== "undefined" && faq && faq.length) { %>
 <script type="application/ld+json">
 <%- JSON.stringify({
@@ -75,3 +109,17 @@
 }) %>
 </script>
 <% } %>
+
+<link rel="icon" href="/images/favicon-kazuki.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/favicon-kazuki.png">
+
+<!-- Preload hero image (LCP) — só na home -->
+<% if (currentPath === "/") { %>
+<link rel="preload" as="image" href="/images/alexandre-santos-seo-local-cotia.png" fetchpriority="high">
+<% } %>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">

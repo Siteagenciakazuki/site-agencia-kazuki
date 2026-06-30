@@ -20,6 +20,23 @@ app.use(
   })
 );
 
+// Redireciona www → sem www (canonical definitivo pra SEO)
+app.use((req, res, next) => {
+  if (req.headers.host && req.headers.host.startsWith("www.")) {
+    return res.redirect(301, `https://${req.headers.host.replace(/^www\./, "")}${req.url}`);
+  }
+  next();
+});
+
+// Redireciona trailing slash (ex: /servicos/ → /servicos)
+app.use((req, res, next) => {
+  if (req.path !== "/" && req.path.endsWith("/")) {
+    const clean = req.path.slice(0, -1) + (Object.keys(req.query).length ? "?" + new URLSearchParams(req.query) : "");
+    return res.redirect(301, clean);
+  }
+  next();
+});
+
 // Dados globais disponíveis em toda view, sem precisar passar em cada render().
 app.use((req, res, next) => {
   res.locals.business = business;
@@ -35,15 +52,12 @@ function canonical(p) {
 
 app.get("/", (req, res) => {
   res.render("home", {
-    services,
-    differentiators,
-    workProcess,
-    faq,
+    services, differentiators, workProcess, faq,
     meta: {
       title: "Agência de Marketing em Cotia | Kazuki Marketing",
-      description:
-        "Agência de marketing em Cotia especializada em SEO local, Google Meu Negócio e sites de alta performance. +12 anos de experiência no setor de alimentação. Fale com a Kazuki.",
+      description: "Agência de marketing em Cotia especializada em SEO local, Google Meu Negócio e sites de alta performance. +12 anos de experiência no setor de alimentação. Fale com a Kazuki.",
       canonical: canonical("/"),
+      ogType: "website",
       h1: "Agência de Marketing em Cotia especializada em SEO Local",
     },
   });
@@ -54,10 +68,14 @@ app.get("/servicos", (req, res) => {
     services,
     meta: {
       title: "Serviços de Marketing Digital em Cotia | Kazuki Marketing",
-      description:
-        "SEO local, criação de sites, Google Meu Negócio, tráfego pago e desenvolvimento de software. Conheça os serviços da Kazuki Marketing em Cotia/SP.",
+      description: "SEO local, criação de sites, Google Meu Negócio, tráfego pago e desenvolvimento de software em Cotia/SP. Conheça os serviços da Kazuki Marketing.",
       canonical: canonical("/servicos"),
+      ogType: "website",
       h1: "Serviços de Marketing Digital em Cotia",
+      breadcrumb: [
+        { name: "Home", path: "/" },
+        { name: "Serviços", path: "/servicos" },
+      ],
     },
   });
 });
@@ -66,11 +84,15 @@ app.get("/sobre", (req, res) => {
   res.render("sobre", {
     differentiators,
     meta: {
-      title: "Sobre a Kazuki Marketing | Cotia/SP",
-      description:
-        "Conheça a Kazuki Marketing: +12 anos de experiência em operações de restaurantes aplicados ao marketing digital e SEO local em Cotia/SP.",
+      title: "Sobre a Kazuki Marketing | Agência de SEO Local em Cotia/SP",
+      description: "Conheça a Kazuki Marketing: +12 anos de experiência em operações de restaurantes aplicados ao marketing digital e SEO local em Cotia/SP.",
       canonical: canonical("/sobre"),
+      ogType: "website",
       h1: "Quem é a Kazuki Marketing",
+      breadcrumb: [
+        { name: "Home", path: "/" },
+        { name: "Sobre", path: "/sobre" },
+      ],
     },
   });
 });
@@ -79,11 +101,15 @@ app.get("/blog", (req, res) => {
   res.render("blog", {
     blogPosts,
     meta: {
-      title: "Blog | SEO Local e Marketing para Restaurantes",
-      description:
-        "Conteúdo prático sobre SEO local, Google Meu Negócio e marketing digital para restaurantes e negócios locais em Cotia/SP.",
+      title: "Blog de SEO Local | Kazuki Marketing Cotia",
+      description: "Conteúdo prático sobre SEO local, Google Meu Negócio e marketing digital para restaurantes e negócios locais em Cotia/SP.",
       canonical: canonical("/blog"),
+      ogType: "website",
       h1: "Conteúdo sobre SEO Local e Marketing Digital",
+      breadcrumb: [
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blog" },
+      ],
     },
   });
 });
@@ -97,7 +123,13 @@ app.get("/blog/:slug", (req, res, next) => {
       title: `${post.title} | Blog Kazuki Marketing`,
       description: post.excerpt,
       canonical: canonical(`/blog/${post.slug}`),
+      ogType: "article",
       h1: post.title,
+      breadcrumb: [
+        { name: "Home", path: "/" },
+        { name: "Blog", path: "/blog" },
+        { name: post.title, path: `/blog/${post.slug}` },
+      ],
     },
   });
 });
@@ -106,10 +138,14 @@ app.get("/contato", (req, res) => {
   res.render("contato", {
     meta: {
       title: "Contato | Agência Kazuki Marketing em Cotia/SP",
-      description:
-        "Fale com a Kazuki Marketing pelo WhatsApp ou visite o escritório em Cotia/SP. Orçamento sem compromisso pra SEO local, sites e Google Meu Negócio.",
+      description: "Fale com a Kazuki Marketing pelo WhatsApp. Orçamento sem compromisso pra SEO local, sites e Google Meu Negócio em Cotia/SP.",
       canonical: canonical("/contato"),
+      ogType: "website",
       h1: "Fale com a Kazuki Marketing",
+      breadcrumb: [
+        { name: "Home", path: "/" },
+        { name: "Contato", path: "/contato" },
+      ],
     },
   });
 });
@@ -118,8 +154,10 @@ app.get("/privacidade", (req, res) => {
   res.render("privacidade", {
     meta: {
       title: "Política de Privacidade | Kazuki Marketing",
-      description: "Política de privacidade da Kazuki Marketing — como coletamos, usamos e protegemos seus dados.",
+      description: "Política de privacidade da Kazuki Marketing conforme a LGPD — como coletamos, usamos e protegemos seus dados.",
       canonical: canonical("/privacidade"),
+      ogType: "website",
+      noindex: true,
       h1: "Política de Privacidade",
     },
   });
@@ -131,6 +169,8 @@ app.get("/termos", (req, res) => {
       title: "Termos de Uso | Kazuki Marketing",
       description: "Termos de uso do site da Kazuki Marketing.",
       canonical: canonical("/termos"),
+      ogType: "website",
+      noindex: true,
       h1: "Termos de Uso",
     },
   });
@@ -142,16 +182,35 @@ app.get("/cookies", (req, res) => {
       title: "Política de Cookies | Kazuki Marketing",
       description: "Como o site da Kazuki Marketing usa cookies.",
       canonical: canonical("/cookies"),
+      ogType: "website",
+      noindex: true,
       h1: "Política de Cookies",
     },
   });
 });
 
 app.get("/sitemap.xml", (req, res) => {
-  const staticPaths = ["/", "/servicos", "/sobre", "/blog", "/contato", "/privacidade", "/termos", "/cookies"];
-  const blogPaths = blogPosts.map((p) => `/blog/${p.slug}`);
-  const urls = [...staticPaths, ...blogPaths]
-    .map((p) => `  <url><loc>${canonical(p)}</loc></url>`)
+  const today = new Date().toISOString().split("T")[0];
+  const pages = [
+    { path: "/",           freq: "weekly",  priority: "1.0" },
+    { path: "/servicos",   freq: "monthly", priority: "0.9" },
+    { path: "/sobre",      freq: "monthly", priority: "0.8" },
+    { path: "/blog",       freq: "weekly",  priority: "0.8" },
+    { path: "/contato",    freq: "monthly", priority: "0.7" },
+  ];
+  const blogPages = blogPosts.map((p) => ({
+    path: `/blog/${p.slug}`,
+    freq: "monthly",
+    priority: "0.7",
+    lastmod: p.date,
+  }));
+  const urls = [...pages, ...blogPages]
+    .map((p) => `  <url>
+    <loc>${canonical(p.path)}</loc>
+    <lastmod>${p.lastmod || today}</lastmod>
+    <changefreq>${p.freq}</changefreq>
+    <priority>${p.priority}</priority>
+  </url>`)
     .join("\n");
 
   res.type("application/xml").send(
