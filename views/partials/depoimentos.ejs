@@ -27,7 +27,30 @@ const deps = [
     mensagem: "Oi equipe Kazuki! 😃 Passei pra agradecer o boost na nossa visibilidade! A ficha do Burger Mania tá linda e cheia de comentários agora. Sentimos o aumento de clientes tb 👍🍔",
     resultado: "Ficha 100%", estrelas: 5, hora: "18:33",
     review: "Da visibilidade zero pra aparecer em todo Google Maps da região. Trabalho sério e com resultado."
+  },
+  {
+    nome: "Roberto Alves", restaurante: "Cantina do Nonno", cidade: "CWB",
+    inicial: "RA", cor: "#9B59B6",
+    mensagem: "Alexandre, cara! A cantina apareceu em 1º no Google Maps hoje!! Tô emocionado demais 😭🍝 Obrigado por toda dedicação. Melhor parceria que fiz!",
+    resultado: "1º no Maps", estrelas: 5, hora: "20:11",
+    review: "Nunca imaginei que meu restaurante pequeno chegaria ao topo do Google. A Kazuki fez isso!"
+  },
+  {
+    nome: "Fernanda Costa", restaurante: "Açaí & Cia", cidade: "FOR",
+    inicial: "FC", cor: "#E67E22",
+    mensagem: "Passando pra dar um feedback rapidinho: as avaliações no Google dobraram esse mês! 🎊 Tô recebendo clientes dizendo q me acharam pelo Google Maps. Demais isso! Valeu Kazuki ❤️",
+    resultado: "2x avaliações", estrelas: 5, hora: "11:58",
+    review: "Em 60 dias meu delivery cresceu 60%. O trabalho de SEO local da Kazuki é de outro nível."
   }
+];
+
+const msgs = [
+  { de: "CH", cor: "#FF4500", nome: "Carlos · Mama Mia", texto: "Pizzaria tá no topo Google! 🍕🎉", hora: "10:42", novo: true },
+  { de: "AP", cor: "#E91E8C", nome: "Ana Paula · Fogo no Chão", texto: "Casa cheia todo fds!! Obg Kazuki 🥩🔥", hora: "14:17", novo: true },
+  { de: "MT", cor: "#1E90FF", nome: "Márcio · Sushi Sashimi", texto: "Top 3 Google Maps já!! 🍣🚀", hora: "15:02", novo: false },
+  { de: "LF", cor: "#2ECC40", nome: "Luciana · Burger Mania", texto: "Ficha otimizada, clientes chegando 👍🍔", hora: "18:33", novo: true },
+  { de: "RA", cor: "#9B59B6", nome: "Roberto · Cantina Nonno", texto: "1º lugar no Maps hoje!! 😭🍝", hora: "20:11", novo: true },
+  { de: "FC", cor: "#E67E22", nome: "Fernanda · Açaí & Cia", texto: "Avaliações dobraram esse mês! ❤️", hora: "11:58", novo: false }
 ];
 %>
 
@@ -39,65 +62,115 @@ const deps = [
       Restaurantes que apareceram no topo do Google em Cotia e região depois de trabalhar com a Kazuki Marketing.
     </p>
 
+    <!-- Hero visual: foto IA do iPhone 17 Pro Max -->
+    <div class="dep-hero-img reveal">
+      <img
+        src="/images/iphone-whatsapp-mockup.jpg"
+        alt="iPhone 17 Pro Max mostrando conversa de WhatsApp com cliente de restaurante agradecendo à Kazuki Marketing"
+        width="1024"
+        height="1024"
+        loading="lazy"
+      >
+      <div class="dep-hero-img__caption">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#25D366" aria-hidden="true"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.7 16.46L2 22l5.69-1.5a8.93 8.93 0 0 0 4.36 1.11h.01a8.94 8.94 0 0 0 6.32-15.29Z"/></svg>
+        Clientes reais, resultados reais
+      </div>
+    </div>
+
     <div class="dep-grid">
 
-      <!-- iPhone 17 Pro Max mockup com WhatsApp -->
+      <!-- iPhone 17 Pro Max mockup -->
       <div class="iphone-wrap reveal">
         <div class="iphone">
-          <div class="iphone__island"></div>
+          <!-- Titanium frame shine -->
+          <div class="iphone__frame-shine"></div>
+          <!-- Dynamic Island -->
+          <div class="iphone__island">
+            <div class="iphone__island-cam"></div>
+          </div>
           <div class="iphone__screen">
-            <!-- WhatsApp header -->
-            <div class="wa-header">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/></svg>
-              <span class="wa-header__title">Kazuki Marketing</span>
-              <div class="wa-header__icons">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <!-- Status bar -->
+            <div class="wa-statusbar">
+              <span class="wa-statusbar__time">09:41</span>
+              <div class="wa-statusbar__icons">
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="white"><rect x="0" y="3" width="2" height="7" rx="0.5"/><rect x="3" y="2" width="2" height="8" rx="0.5"/><rect x="6" y="0" width="2" height="10" rx="0.5"/><rect x="9" y="0" width="2" height="10" rx="0.5" opacity=".4"/></svg>
+                <svg width="14" height="10" viewBox="0 0 50 20" fill="white"><rect x="1" y="1" width="40" height="18" rx="4" stroke="white" stroke-width="2" fill="none"/><rect x="4" y="4" width="28" height="12" rx="2" fill="white"/><rect x="43" y="6" width="6" height="8" rx="2" fill="white" opacity=".5"/></svg>
               </div>
             </div>
-
-            <!-- lista de chats -->
-            <div class="wa-list">
-              <% deps.forEach((d, i) => { %>
-              <div class="wa-item reveal" data-reveal-delay="<%= i * 80 %>">
-                <div class="wa-avatar" style="background:<%= d.cor %>"><%= d.inicial %></div>
-                <div class="wa-info">
-                  <div class="wa-info__top">
-                    <span class="wa-name"><%= d.nome %></span>
-                    <span class="wa-time"><%= d.hora %></span>
+            <!-- WhatsApp header -->
+            <div class="wa-header">
+              <div class="wa-header__back">‹</div>
+              <div class="wa-header__avatar" style="background:#25D366">K</div>
+              <div class="wa-header__title-wrap">
+                <span class="wa-header__title">Kazuki Marketing</span>
+                <span class="wa-header__sub">clientes · 6 mensagens</span>
+              </div>
+              <div class="wa-header__icons">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+              </div>
+            </div>
+            <!-- Chat messages list -->
+            <div class="wa-chatlist">
+              <% msgs.forEach((m, i) => { %>
+              <div class="wa-chatrow">
+                <div class="wa-avatar" style="background:<%= m.cor %>; width:38px; height:38px; font-size:.7rem"><%= m.de %></div>
+                <div class="wa-chatrow__body">
+                  <div class="wa-chatrow__top">
+                    <span class="wa-chatrow__name"><%= m.nome %></span>
+                    <span class="wa-chatrow__time"><%= m.hora %></span>
                   </div>
-                  <div class="wa-info__bottom">
-                    <span class="wa-preview"><%= d.mensagem.substring(0, 42) %>…</span>
-                    <span class="wa-badge">1</span>
+                  <div class="wa-chatrow__preview">
+                    <span><%= m.texto %></span>
+                    <% if (m.novo) { %><span class="wa-chatrow__dot"></span><% } %>
                   </div>
                 </div>
               </div>
               <% }) %>
             </div>
+            <!-- bottom nav -->
+            <div class="wa-bottomnav">
+              <div class="wa-bottomnav__item wa-bottomnav__item--active">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                <span>Conversas</span>
+              </div>
+              <div class="wa-bottomnav__item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <span>Status</span>
+              </div>
+              <div class="wa-bottomnav__item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <span>Ligações</span>
+              </div>
+            </div>
+            <!-- screen glare overlay -->
+            <div class="iphone__glare"></div>
           </div>
           <div class="iphone__bar"></div>
+          <!-- side buttons -->
+          <div class="iphone__btn iphone__btn--vol-up"></div>
+          <div class="iphone__btn iphone__btn--vol-down"></div>
+          <div class="iphone__btn iphone__btn--power"></div>
         </div>
-        <!-- badge de resultado flutuante -->
-        <div class="iphone-badge reveal" data-reveal-delay="300">
-          <span>💬</span> 4 clientes satisfeitos
+        <div class="iphone-badge reveal" data-reveal-delay="400">
+          💬 <%= deps.length %> clientes satisfeitos
         </div>
       </div>
 
       <!-- mensagens expandidas -->
       <div class="dep-msgs">
         <% deps.forEach((d, i) => { %>
-        <div class="dep-msg reveal" data-reveal-delay="<%= i * 70 %>">
+        <div class="dep-msg reveal" data-reveal-delay="<%= i * 60 %>">
           <div class="dep-msg__top">
             <div class="dep-avatar" style="background:<%= d.cor %>"><%= d.inicial %></div>
             <div>
               <strong><%= d.nome %></strong>
-              <span class="dep-rest"><%= d.restaurante %></span>
+              <span class="dep-rest"><%= d.restaurante %> · <%= d.cidade %></span>
             </div>
             <span class="dep-tag"><%= d.resultado %></span>
           </div>
           <div class="dep-bubble">
             <%= d.mensagem %>
-            <span class="dep-bubble__time"><%= d.hora %> <svg width="14" height="10" viewBox="0 0 14 10" fill="#53bdeb" aria-hidden="true"><path d="M1 5l3 3 5-6M6 7.5l2 2 5-6"/></svg></span>
+            <span class="dep-bubble__time"><%= d.hora %> <svg width="14" height="10" viewBox="0 0 14 10" fill="#53bdeb" aria-hidden="true"><path d="M1 5l3 3 5-6M6 7.5l2 2 5-6" stroke="#53bdeb" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span>
           </div>
         </div>
         <% }) %>
@@ -108,20 +181,19 @@ const deps = [
     <!-- Google Reviews -->
     <h2 class="reveal" style="margin-top:var(--space-6)">O que dizem no Google</h2>
     <div class="google-reviews">
-      <% deps.forEach((d, i) => { %>
+      <% deps.slice(0,4).forEach((d, i) => { %>
       <article class="g-review reveal" data-reveal-delay="<%= i * 60 %>">
         <div class="g-review__top">
-          <div class="dep-avatar" style="background:<%= d.cor %>; width:38px;height:38px;font-size:.9rem"><%= d.inicial %></div>
+          <div class="dep-avatar" style="background:<%= d.cor %>; width:38px;height:38px;font-size:.85rem"><%= d.inicial %></div>
           <div>
             <strong class="g-review__name"><%= d.nome %></strong>
             <div class="g-stars" aria-label="5 estrelas">
               <% for(let s=0;s<5;s++) { %><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBC04" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><% } %>
             </div>
           </div>
-          <!-- G Google logo -->
           <svg class="g-logo" viewBox="0 0 24 24" width="22" height="22" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         </div>
-        <p class="g-review__text"><%= d.review %></p>
+        <p class="g-review__text">"<%= d.review %>"</p>
         <span class="g-review__rest"><%= d.restaurante %> · <%= d.cidade %></span>
       </article>
       <% }) %>
@@ -130,11 +202,11 @@ const deps = [
     <!-- GMB Profile Card -->
     <div class="gmb-card reveal" style="margin-top:var(--space-5)">
       <div class="gmb-card__photo">
-        <img src="/images/restaurante-gmb.jpg" alt="Restaurante brasileiro bem otimizado no Google Meu Negócio" width="400" height="300" loading="lazy">
+        <img src="/images/restaurante-gmb.jpg" alt="Restaurante brasileiro bem otimizado no Google Meu Negócio com nota alta" width="400" height="300" loading="lazy">
       </div>
       <div class="gmb-card__info">
         <div class="gmb-card__brand">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-label="Google"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
           <span>Google Meu Negócio</span>
         </div>
         <h3>Churrascaria Fogo no Chão</h3>
@@ -147,9 +219,10 @@ const deps = [
         </div>
         <p class="gmb-status"><span class="gmb-open">● Aberto agora</span> · Fecha às 23h</p>
         <ul class="gmb-attrs">
-          <li>🍖 Churrasco · Rodízio</li>
+          <li>🍖 Churrasco · Rodízio completo</li>
           <li>📍 Centro, Cotia/SP</li>
-          <li>🌐 Delivery · Reservas</li>
+          <li>🌐 Delivery · Reservas · Wi-Fi</li>
+          <li>📸 +80 fotos adicionadas</li>
         </ul>
         <div class="gmb-score">
           <div class="gmb-score__bar">

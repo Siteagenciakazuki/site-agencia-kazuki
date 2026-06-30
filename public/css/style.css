@@ -560,112 +560,113 @@ p { margin: 0 0 var(--space-2); color: var(--color-text-muted); }
   .iphone-wrap { display: flex; justify-content: center; }
 }
 
-/* iPhone 17 Pro Max mockup */
-.iphone-wrap { position: relative; }
+/* iPhone 17 Pro Max — ultra-realista */
+.iphone-wrap { position: relative; width: fit-content; }
+
 .iphone {
-  width: 300px;
-  min-height: 560px;
-  background: #1a1a1a;
-  border-radius: 46px;
-  padding: 14px;
-  box-shadow:
-    0 0 0 1px #3a3a3a,
-    0 0 0 3px #222,
-    0 30px 80px -20px rgba(0,0,0,0.9),
-    inset 0 0 0 1px rgba(255,255,255,0.05);
+  width: 306px;
+  background: linear-gradient(160deg, #2e2e2e 0%, #111 40%, #1c1c1e 100%);
+  border-radius: 52px;
+  padding: 14px 12px 10px;
   position: relative;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.13),
+    0 0 0 2px #080808,
+    0 0 0 3.5px rgba(255,255,255,0.06),
+    0 50px 120px -20px rgba(0,0,0,0.97),
+    0 10px 40px -10px rgba(212,168,83,0.14),
+    inset 0 1px 0 rgba(255,255,255,0.07);
 }
+.iphone__frame-shine {
+  position: absolute; inset: 0; border-radius: 52px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.09) 0%, transparent 38%, transparent 62%, rgba(255,255,255,0.04) 100%);
+  pointer-events: none; z-index: 10;
+}
+.iphone__btn { position: absolute; background: linear-gradient(180deg,#383838 0%,#1e1e1e 100%); border-radius: 3px; }
+.iphone__btn--vol-up   { left:-3px; top:105px; width:3px; height:32px; }
+.iphone__btn--vol-down { left:-3px; top:148px; width:3px; height:32px; }
+.iphone__btn--power    { right:-3px; top:125px; width:3px; height:52px; }
+
 .iphone__island {
-  width: 100px;
-  height: 30px;
-  background: #000;
-  border-radius: 20px;
-  margin: 0 auto 8px;
+  width: 116px; height: 33px; background: #000; border-radius: 22px;
+  margin: 0 auto 5px; display: flex; align-items: center;
+  justify-content: flex-end; padding-right: 16px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
+}
+.iphone__island-cam {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #1a3a5a, #080e18);
+  box-shadow: inset 0 0 4px rgba(0,150,255,0.4), 0 0 0 1px rgba(255,255,255,0.1);
 }
 .iphone__screen {
-  background: #fff;
-  border-radius: 32px;
-  overflow: hidden;
-  min-height: 460px;
+  background: #fff; border-radius: 40px; overflow: hidden;
+  position: relative; min-height: 510px; display: flex; flex-direction: column;
+}
+.iphone__glare {
+  position: absolute; inset: 0; border-radius: 40px;
+  background: linear-gradient(118deg, rgba(255,255,255,0.09) 0%, transparent 32%);
+  pointer-events: none; z-index: 5;
 }
 .iphone__bar {
-  width: 120px;
-  height: 4px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 4px;
-  margin: 10px auto 0;
+  width: 100px; height: 4px; background: rgba(255,255,255,0.22);
+  border-radius: 4px; margin: 8px auto 0;
 }
+
+/* Status bar */
+.wa-statusbar {
+  background: #075E54; display: flex; justify-content: space-between;
+  align-items: center; padding: 6px 16px 4px;
+}
+.wa-statusbar__time { font-size: 0.7rem; font-weight: 700; color:#fff; font-family:var(--font-body); }
+.wa-statusbar__icons { display:flex; align-items:center; gap:4px; }
 
 /* WhatsApp header */
 .wa-header {
-  background: #128C7E;
-  padding: 10px 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #fff;
+  background: #075E54; padding: 6px 10px 8px;
+  display: flex; align-items: center; gap: 6px; color: #fff;
 }
-.wa-header__title { flex: 1; font-size: 0.9rem; font-weight: 600; font-family: var(--font-body); }
-.wa-header__icons { display: flex; gap: 10px; }
+.wa-header__back { font-size: 1.5rem; color:#fff; line-height:1; }
+.wa-header__avatar {
+  width:32px; height:32px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:0.75rem; color:#fff; flex-shrink:0; font-family:var(--font-body);
+}
+.wa-header__title-wrap { flex:1; }
+.wa-header__title  { font-size:0.82rem; font-weight:600; display:block; font-family:var(--font-body); }
+.wa-header__sub    { font-size:0.6rem; color:rgba(255,255,255,0.72); display:block; font-family:var(--font-body); }
+.wa-header__icons  { display:flex; gap:10px; }
 
-/* WhatsApp lista */
-.wa-list { background: #fff; }
-.wa-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 14px;
-  border-bottom: 1px solid #f0f0f0;
-  cursor: default;
+/* Chat list */
+.wa-chatlist { flex:1; background:#fff; overflow:hidden; }
+.wa-chatrow {
+  display:flex; align-items:center; gap:9px;
+  padding:7px 10px; border-bottom:1px solid #f0f2f0;
 }
-.wa-item:hover { background: #f5f5f5; }
 .wa-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.75rem;
-  color: #fff;
-  flex-shrink: 0;
-  font-family: var(--font-body);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-weight:700; color:#fff; flex-shrink:0; font-family:var(--font-body);
+  width:38px; height:38px; font-size:0.68rem;
 }
-.wa-info { flex: 1; min-width: 0; }
-.wa-info__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
-.wa-name { font-size: 0.82rem; font-weight: 600; color: #111; font-family: var(--font-body); }
-.wa-time { font-size: 0.68rem; color: #25D366; }
-.wa-info__bottom { display: flex; align-items: center; justify-content: space-between; }
-.wa-preview { font-size: 0.72rem; color: #777; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; }
-.wa-badge {
-  background: #25D366;
-  color: #fff;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  font-size: 0.65rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-family: var(--font-body);
-}
+.wa-chatrow__body   { flex:1; min-width:0; }
+.wa-chatrow__top    { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:1px; }
+.wa-chatrow__name   { font-size:0.73rem; font-weight:600; color:#111; font-family:var(--font-body); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:145px; display:block; }
+.wa-chatrow__time   { font-size:0.58rem; color:#25D366; flex-shrink:0; }
+.wa-chatrow__preview { display:flex; justify-content:space-between; align-items:center; gap:4px; }
+.wa-chatrow__preview span:first-child { font-size:0.63rem; color:#777; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:155px; display:block; font-family:var(--font-body); }
+.wa-chatrow__dot    { width:14px; height:14px; border-radius:50%; background:#25D366; flex-shrink:0; }
+
+/* Bottom nav */
+.wa-bottomnav { background:#fff; border-top:1px solid #eee; display:flex; justify-content:space-around; padding:5px 0 8px; }
+.wa-bottomnav__item { display:flex; flex-direction:column; align-items:center; gap:2px; color:#aaa; font-size:0.5rem; font-family:var(--font-body); }
+.wa-bottomnav__item--active { color:#128C7E; }
 
 /* Badge flutuante */
 .iphone-badge {
-  position: absolute;
-  bottom: -16px;
-  right: -16px;
-  background: #25D366;
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
-  font-family: var(--font-body);
-  white-space: nowrap;
+  position: absolute; bottom: -14px; right: -22px;
+  background: #25D366; color: #fff; font-size: 0.78rem; font-weight: 600;
+  padding: 7px 16px; border-radius: var(--radius-pill);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.6);
+  font-family: var(--font-body); white-space: nowrap; z-index: 20;
 }
 
 /* Mensagens expandidas (direita) */
@@ -768,3 +769,33 @@ p { margin: 0 0 var(--space-2); color: var(--color-text-muted); }
 .gmb-score__fill { height: 100%; background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light)); border-radius: 4px; }
 .gmb-score__label { font-size: 0.82rem; color: var(--color-text-muted); }
 .gmb-score__label strong { color: var(--color-gold-light); }
+
+/* Hero imagem iPhone IA */
+.dep-hero-img {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto var(--space-5);
+}
+.dep-hero-img img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px var(--color-border);
+}
+.dep-hero-img__caption {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10,10,10,0.82);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-family: var(--font-body);
+}
