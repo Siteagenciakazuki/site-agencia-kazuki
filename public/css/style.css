@@ -543,3 +543,228 @@ p { margin: 0 0 var(--space-2); color: var(--color-text-muted); }
   transition: transform 200ms var(--ease-out);
 }
 .whatsapp-float:hover { transform: scale(1.08); }
+
+/* ==========================================================================
+   Depoimentos — WhatsApp + iPhone 17 Pro Max + Google Reviews + GMB
+   ========================================================================== */
+
+/* Layout principal */
+.dep-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+@media (max-width: 880px) {
+  .dep-grid { grid-template-columns: 1fr; }
+  .iphone-wrap { display: flex; justify-content: center; }
+}
+
+/* iPhone 17 Pro Max mockup */
+.iphone-wrap { position: relative; }
+.iphone {
+  width: 300px;
+  min-height: 560px;
+  background: #1a1a1a;
+  border-radius: 46px;
+  padding: 14px;
+  box-shadow:
+    0 0 0 1px #3a3a3a,
+    0 0 0 3px #222,
+    0 30px 80px -20px rgba(0,0,0,0.9),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+  position: relative;
+}
+.iphone__island {
+  width: 100px;
+  height: 30px;
+  background: #000;
+  border-radius: 20px;
+  margin: 0 auto 8px;
+}
+.iphone__screen {
+  background: #fff;
+  border-radius: 32px;
+  overflow: hidden;
+  min-height: 460px;
+}
+.iphone__bar {
+  width: 120px;
+  height: 4px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+  margin: 10px auto 0;
+}
+
+/* WhatsApp header */
+.wa-header {
+  background: #128C7E;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+.wa-header__title { flex: 1; font-size: 0.9rem; font-weight: 600; font-family: var(--font-body); }
+.wa-header__icons { display: flex; gap: 10px; }
+
+/* WhatsApp lista */
+.wa-list { background: #fff; }
+.wa-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: default;
+}
+.wa-item:hover { background: #f5f5f5; }
+.wa-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #fff;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+}
+.wa-info { flex: 1; min-width: 0; }
+.wa-info__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px; }
+.wa-name { font-size: 0.82rem; font-weight: 600; color: #111; font-family: var(--font-body); }
+.wa-time { font-size: 0.68rem; color: #25D366; }
+.wa-info__bottom { display: flex; align-items: center; justify-content: space-between; }
+.wa-preview { font-size: 0.72rem; color: #777; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px; }
+.wa-badge {
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+}
+
+/* Badge flutuante */
+.iphone-badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: #25D366;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+
+/* Mensagens expandidas (direita) */
+.dep-msgs { display: grid; gap: var(--space-3); }
+.dep-msg {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+.dep-msg__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: var(--space-2);
+}
+.dep-msg__top strong { font-size: 0.9rem; display: block; color: var(--color-text); }
+.dep-rest { font-size: 0.75rem; color: var(--color-text-muted); }
+.dep-tag {
+  margin-left: auto;
+  background: rgba(212,168,83,0.15);
+  color: var(--color-gold-light);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  border: 1px solid rgba(212,168,83,0.3);
+}
+.dep-bubble {
+  background: #E8FFE8;
+  color: #111;
+  border-radius: 0 12px 12px 12px;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  position: relative;
+  font-family: var(--font-body);
+}
+.dep-bubble__time {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  margin-top: 4px;
+  font-size: 0.68rem;
+  color: #888;
+}
+
+/* Google Reviews */
+.google-reviews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+@media (max-width: 680px) { .google-reviews { grid-template-columns: 1fr; } }
+.g-review {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+.g-review__top { display: flex; align-items: center; gap: 10px; margin-bottom: var(--space-2); }
+.g-review__name { font-size: 0.88rem; display: block; color: var(--color-text); }
+.g-stars { display: flex; gap: 1px; }
+.g-logo { margin-left: auto; flex-shrink: 0; }
+.g-review__text { color: var(--color-text-muted); font-size: 0.88rem; line-height: 1.55; margin: 0 0 var(--space-1); }
+.g-review__rest { font-size: 0.72rem; color: var(--color-gold-light); }
+
+/* GMB Card */
+.gmb-card {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+@media (max-width: 880px) { .gmb-card { grid-template-columns: 1fr; } }
+.gmb-card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; min-height: 260px; }
+.gmb-card__info { padding: var(--space-4); }
+.gmb-card__brand { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.gmb-card h3 { color: var(--color-text); margin-bottom: var(--space-1); font-size: 1.4rem; }
+.gmb-rating { display: flex; align-items: center; gap: 8px; margin-bottom: var(--space-1); }
+.gmb-rating__num { font-size: 1.5rem; font-weight: 700; color: var(--color-gold-light); }
+.gmb-rating__count { font-size: 0.8rem; color: var(--color-text-muted); }
+.gmb-status { font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: var(--space-2); }
+.gmb-open { color: #4CAF50; font-weight: 600; }
+.gmb-attrs { display: flex; flex-direction: column; gap: 4px; margin-bottom: var(--space-3); }
+.gmb-attrs li { font-size: 0.85rem; color: var(--color-text-muted); }
+.gmb-score { margin-top: auto; }
+.gmb-score__bar {
+  height: 8px;
+  background: var(--color-border);
+  border-radius: 4px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.gmb-score__fill { height: 100%; background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light)); border-radius: 4px; }
+.gmb-score__label { font-size: 0.82rem; color: var(--color-text-muted); }
+.gmb-score__label strong { color: var(--color-gold-light); }
