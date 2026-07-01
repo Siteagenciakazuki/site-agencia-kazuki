@@ -18,7 +18,7 @@
       </p>
 
       <% if (post.image) { %>
-        <img src="<%= post.image.src %>" alt="<%= post.image.alt %>" class="blog-post__hero reveal" data-reveal="mount" width="900" height="900">
+        <img src="<%= post.image.src %>" alt="<%= post.image.alt %>" title="<%= post.image.alt %>" class="blog-post__hero reveal" data-reveal="mount" width="900" height="900">
       <% } %>
 
       <% post.body.forEach((block, i) => { %>
