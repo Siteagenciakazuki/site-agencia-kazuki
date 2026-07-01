@@ -21,13 +21,13 @@
         <% blogPosts.forEach((post, i) => { %>
           <article class="blog-card reveal" data-reveal-delay="<%= i * 60 %>">
             <% if (post.image) { %>
-              <a href="/blog/<%= post.slug %>" class="blog-card__image-link">
+              <a href="/blog/<%= post.slug %>" class="blog-card__image-link" title="<%= post.title %>">
                 <img src="<%= post.image.src %>" alt="<%= post.image.alt %>" title="<%= post.title %>" class="blog-card__image" width="900" height="900" loading="lazy">
               </a>
             <% } %>
-            <h2><a href="/blog/<%= post.slug %>"><%= post.title %></a></h2>
+            <h2><a href="/blog/<%= post.slug %>" title="<%= post.title %>"><%= post.title %></a></h2>
             <p><%= post.excerpt %></p>
-            <a href="/blog/<%= post.slug %>" class="blog-card__link">Ler artigo →</a>
+            <a href="/blog/<%= post.slug %>" class="blog-card__link" title="<%= post.title %>">Ler artigo →</a>
           </article>
         <% }) %>
       </div>
