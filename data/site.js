@@ -273,6 +273,91 @@ const blogPosts = [
       },
     ],
   },
+  {
+    slug: "porque-aparecer-google-importa",
+    title: "Por que aparecer no Google importa (mesmo) pro seu negócio local",
+    excerpt:
+      "76% de quem busca um negócio perto de casa visita ou liga no mesmo dia. Se você não aparece na hora certa, quem aparece é o concorrente.",
+    date: "2026-07-29",
+    body: [
+      {
+        heading: "O cliente já decidiu antes de sair de casa",
+        paragraphs: [
+          "Quase todo mundo pesquisa no Google antes de ir a um lugar que não conhece — mesmo que seja uma padaria a três quarteirões. E a decisão costuma ser rápida: pesquisas do próprio Google mostram que 76% de quem busca um negócio perto de casa visita a loja ou liga em até 24 horas.",
+          "Isso muda a lógica de quem tem comércio local. Não é sobre estar \"na internet\" de forma genérica — é sobre estar lá exatamente no momento em que alguém já quer comprar, e perto o suficiente pra fechar ainda hoje.",
+        ],
+      },
+      {
+        heading: "Os três pontos que mais pesam pra aparecer",
+        paragraphs: [
+          "Ficha do Google Meu Negócio completa — nome, endereço e telefone corretos, categoria certa, horário sempre atualizado e fotos reais do local.",
+          "Site otimizado pra busca local — rápido, funcionando bem no celular (é de lá que vem a maior parte das buscas \"perto de mim\") e com as palavras que o cliente realmente digita, não termos técnicos de quem trabalha na área.",
+          "Avaliações em dia — quantidade, nota média e, principalmente, resposta. Ficha sem avaliação recente passa a impressão de negócio parado, mesmo estando aberto todo dia.",
+        ],
+      },
+      {
+        heading: "O que 'aparecer' realmente significa",
+        paragraphs: [
+          "Tem duas formas de aparecer numa busca local: no mapa (o bloco com 3 negócios que o Google mostra primeiro, direto do Meu Negócio) e no resultado orgânico do site logo abaixo. O ideal é aparecer nos dois — quem só depende de anúncio pago perde a visibilidade no minuto em que o orçamento acaba.",
+          "Ficha e site bem trabalhados continuam trazendo cliente mesmo nos meses em que não há verba pra campanha. É a diferença entre alugar atenção e ser dono dela.",
+        ],
+      },
+      {
+        heading: "Onde a Kazuki entra nisso",
+        paragraphs: [
+          "É exatamente esse o trabalho que a gente faz na Kazuki: colocar a ficha do Google, o site e as avaliações pra trabalhar juntos, em vez de cada um puxando pra um lado. Site pensado pra SEO local desde a estrutura, ficha otimizada e acompanhada de perto, e tráfego pago só entrando pra acelerar o que já está bem construído — não pra tapar buraco.",
+        ],
+      },
+      {
+        heading: "Próximo passo",
+        paragraphs: [
+          "Se você quer saber onde seu negócio está perdendo cliente pra concorrência no Google, chama a gente no WhatsApp — a gente faz esse diagnóstico rápido e sem custo antes de qualquer proposta.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "de-restaurante-a-especialista-seo-local",
+    title: "De liderar operação de restaurante a especialista em SEO local",
+    excerpt:
+      "12 anos gerindo salão de restaurante de alto padrão viraram a base do jeito que a Kazuki cuida de SEO local hoje. A trajetória por trás do método.",
+    date: "2026-08-05",
+    body: [
+      {
+        heading: "A maioria das agências nunca geriu operação de verdade",
+        paragraphs: [
+          "Tem muita gente vendendo SEO local sem nunca ter respondido por uma operação no dia a dia — sem saber o que é lidar com cliente insatisfeito na hora, corrigir processo em tempo real ou manter padrão quando a casa está lotada. Isso faz diferença em como o trabalho é conduzido.",
+          "Antes de migrar pro digital, passei mais de 12 anos em liderança operacional em restaurantes de alto padrão — Madero, Coco Bambu, Pirajá, Astor, Ici Brasserie, Outback Steakhouse. Gestão de equipe, experiência do cliente, padronização de processo, controle de qualidade. Hoje esse é o método que aplico em SEO local.",
+        ],
+      },
+      {
+        heading: "O que operação de restaurante ensina sobre SEO local",
+        paragraphs: [
+          "Restaurante de alto padrão não erra o básico — mesa não pode faltar talher, prato não sai errado, reclamação não fica sem resposta. É repetição disciplinada do que importa, todos os dias, sem exceção.",
+          "SEO local funciona pela mesma lógica. Ficha do Google atualizada não é tarefa de vez em quando: é rotina. Avaliação sem resposta em 48h é como mesa desmontada durante o serviço. Site lento no celular é como cozinha atrasando pedido — o cliente sente na hora, mesmo sem saber o motivo técnico.",
+        ],
+      },
+      {
+        heading: "Padronização de processo aplicada ao marketing digital",
+        paragraphs: [
+          "Restaurante bem gerido tem checklist pra tudo: abertura, fechamento, troca de turno, reposição de estoque. Na Kazuki, esse mesmo raciocínio virou processo pra SEO local: cronograma fixo de post no Google Meu Negócio, resposta padrão (mas nunca copiada) pra avaliação, revisão periódica de NAP (nome, endereço, telefone) em todos os canais onde o negócio aparece.",
+          "Isso separa SEO local feito com rigor de SEO local feito \"quando dá tempo\". A diferença não aparece no primeiro mês — aparece no sexto, quando a ficha de quem manteve o processo em dia está muito à frente de quem fez uma vez e esqueceu.",
+        ],
+      },
+      {
+        heading: "Onde isso se encaixa na Kazuki",
+        paragraphs: [
+          "A Kazuki nasceu dessa junção: mais de 10 anos criando soluções digitais somados à disciplina operacional de quem geriu salão de restaurante grande. Site, SEO técnico, ficha do Google e avaliação são tratados como partes de uma operação só — não como tarefas soltas terceirizadas cada uma pra um lado.",
+        ],
+      },
+      {
+        heading: "Próximo passo",
+        paragraphs: [
+          "Se você quer um diagnóstico de como sua ficha do Google e seu site estão hoje, chama no WhatsApp — a conversa inicial é rápida, sem custo e sem compromisso.",
+        ],
+      },
+    ],
+  },
 ];
 
 module.exports = {
