@@ -279,6 +279,10 @@ const blogPosts = [
     excerpt:
       "76% de quem busca um negócio perto de casa visita ou liga no mesmo dia. Se você não aparece na hora certa, quem aparece é o concorrente.",
     date: "2026-07-29",
+    image: {
+      src: "/images/blog/aparecer-no-google.jpg",
+      alt: "Fachada de comércio local ao entardecer, com produtos expostos na calçada",
+    },
     body: [
       {
         heading: "O cliente já decidiu antes de sair de casa",
@@ -322,6 +326,10 @@ const blogPosts = [
     excerpt:
       "12 anos gerindo salão de restaurante de alto padrão viraram a base do jeito que a Kazuki cuida de SEO local hoje. A trajetória por trás do método.",
     date: "2026-08-05",
+    image: {
+      src: "/images/blog/trajetoria-fundador.jpg",
+      alt: "Salão de restaurante de alto padrão em ambiente escuro com luz quente",
+    },
     body: [
       {
         heading: "A maioria das agências nunca geriu operação de verdade",

@@ -17,6 +17,10 @@
         <%= new Date(post.date).toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" }) %>
       </p>
 
+      <% if (post.image) { %>
+        <img src="<%= post.image.src %>" alt="<%= post.image.alt %>" class="blog-post__hero reveal" data-reveal="mount" width="900" height="900">
+      <% } %>
+
       <% post.body.forEach((block, i) => { %>
         <section class="blog-post__block reveal" data-reveal-delay="<%= i * 50 %>">
           <h2><%= block.heading %></h2>
